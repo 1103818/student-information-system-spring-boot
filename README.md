@@ -5,4 +5,7 @@ An advanced student information managment system by UoT students (2020-2023). An
 This project is not only an assignment for us but a tool that will help thousand of people around the globe to manage their students with ease.
 * List comming soon.
 
->> Thank you very much!
+## Contribution
+Your contribution is highly appreciated by us and our mates.
+
+> Thank you very much!
