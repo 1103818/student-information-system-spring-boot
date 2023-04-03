@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Add New Student</h1>
-    <form th:action="@{/storeStudent}" method="post" th:object="${studentDabba}">
+    <form th:action="@{/students}" method="post" th:object="${student}">
         <input type="text" th:field="*{name}" name="" placeholder="Enter Name">
         <br><br>
         <input type="text" th:field="*{age}" name="" placeholder="Enter Age">

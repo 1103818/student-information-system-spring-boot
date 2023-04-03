@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.example.studentinfosys.model.Student;
 import com.example.studentinfosys.service.StudentService;
@@ -18,22 +17,22 @@ public class StudentController {
     StudentService studentService;
 
     // To View All Students
-    @GetMapping("/viewStudents")
-    ModelAndView viewStudents() {
-        ModelAndView mav = new ModelAndView("studentList");
-        mav.addObject("students", studentService.getStudentList());
-        return mav;
+    @GetMapping("/students")
+    String viewStudents(Model model) {
+        model.addAttribute("students", studentService.getStudentList());
+        return "studentList";
     }
 
-    @GetMapping("/addStudent")
+    @GetMapping("/new-student")
     String addStudent(Model model) {
-        model.addAttribute("studentDabba", new Student());
+        model.addAttribute("student", new Student());
         return "student-form";
     }
 
-    @PostMapping("/storeStudent")
+    @PostMapping("/students")
     String storeStudent(@ModelAttribute Student student) {
+        System.out.println(student);
         studentService.addStudent(student);
-        return "redirect:studentList";
+        return "redirect:/students";
     }
 }

@@ -16,6 +16,7 @@ public class StudentService {
     }
 
     public void addStudent(Student student) {
+        student.setId(studentList.size() + 1);
         studentList.add(student);
     }
 }
