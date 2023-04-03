@@ -5,13 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Student</title>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h1>Add New Student</h1>
     <form th:action="@{/students}" method="post" th:object="${student}">
-        <input type="text" th:field="*{name}" name="" placeholder="Enter Name">
+        <input type="text" th:field="*{name}" name="" placeholder="Enter Name"><br>
+        <span class="error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
         <br><br>
-        <input type="text" th:field="*{age}" name="" placeholder="Enter Age">
+        <input type="number" th:if="${#fields.hasErrors('age')}" th:field="*{age}" name="" placeholder="Enter Age"> <br>
+        <span class="error" th:errors="*{age}"></span>
         <br><br>
         <button type="submit">Add Student</button>
     </form>
